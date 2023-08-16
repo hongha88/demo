@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import { NestFactory } from '@nestjs/core';
 import { MainModule } from './main.module';
 import { Logger } from '@nestjs/common';
