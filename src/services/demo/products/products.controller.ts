@@ -1,7 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import { ProductsService } from './products.service';
+import { DemoController } from '@helpers/decorator.helper';
 
-@Controller('products')
+@DemoController('products')
 export class ProductsController {
   constructor(private readonly productsServices: ProductsService) {}
   @Get()

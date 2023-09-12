@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { Master, MasterDocument } from 'schemas/master.schema';
 import { Skill, SkillDocument } from 'schemas/skill.schema';
 import { CreateMasterRequest } from './requests/createMaster.request';
+import { CreateSkillRequest } from './requests/createSkill.request';
 
 @Injectable()
 export class MasterService {
@@ -15,31 +16,41 @@ export class MasterService {
   ) {}
 
   async getMasters() {
-
     return;
   }
 
-  async getMasterDetail(masterId: string) {
+  async getDetailMaster(masterId: string) {
     return;
   }
 
-  async createMaster(userId: string, body: CreateMasterRequest) {
-    
-  }
+  async createMaster(userId: string, body: CreateMasterRequest) {}
 
-  async updateMaster() {
+  async updateMaster(
+    userId: string,
+    masterId: string,
+    body: CreateMasterRequest,
+  ) {}
 
-  }
+  async deleteMaster(userId: string, masterId: string) {}
 
-  async deleteMaster() {
+  async getSkillMaster(masterId: string) {}
 
-  }
+  async getDetailSkillMaster(masterId: string, skillId: string) {}
 
-  async createSkillMaster(masterId: string) {
+  async createSkillMaster(
+    userId: string,
+    masterId: string,
+    body: CreateSkillRequest,
+  ) {
     return;
   }
 
-  async updateSkillMaster(masterId: string) {
+  async updateSkillMaster(
+    userId: string,
+    masterId: string,
+    skillId: string,
+    body: CreateSkillRequest,
+  ) {}
 
-  }
+  async deleteSkillMaster(userId: string, masterId: string, skillId: string) {}
 }
