@@ -1,12 +1,11 @@
-import { ConnectionModule } from './../../../common/connections/connections.module';
 import { Module } from '@nestjs/common';
-import { UserController } from './user.controller';
-import { UserService } from './user.service';
+import { InitializationsService } from './initializations.service';
+import { ConnectionModule } from '@connections/connections.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from 'schemas/user.schema';
 import { AvatarPlayer, AvatarPlayerSchema } from 'schemas/avatarPlayer.schema';
 import { Master, MasterSchema } from 'schemas/master.schema';
 import { Skill, SkillSchema } from 'schemas/skill.schema';
+import { User, UserSchema } from 'schemas/user.schema';
 
 @Module({
   imports: [
@@ -18,7 +17,6 @@ import { Skill, SkillSchema } from 'schemas/skill.schema';
       { name: Skill.name, schema: SkillSchema },
     ]),
   ],
-  controllers: [UserController],
-  providers: [UserService],
+  providers: [InitializationsService],
 })
-export class UserModule {}
+export class InitializationsModule {}

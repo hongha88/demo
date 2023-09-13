@@ -12,7 +12,7 @@ export type AvatarPlayerDocument = HydratedDocument<AvatarPlayer>;
 export class AvatarPlayer {
   @Prop({ required: true, type: String })
   userId: string;
-  
+
   @Prop({ required: true, type: String })
   name: string;
 
@@ -36,12 +36,6 @@ export class AvatarPlayer {
 
   @Prop({ required: false, type: [String] })
   masterIds?: string[];
-
-  @Prop({ required: true, type: String })
-  createdBy: string;
-
-  @Prop({ required: true, type: String })
-  updatedBy: string;
 }
 
 export const AvatarPlayerSchema = SchemaFactory.createForClass(AvatarPlayer);
