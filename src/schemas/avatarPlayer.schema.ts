@@ -13,23 +13,11 @@ export class AvatarPlayer {
   @Prop({ required: true, type: String })
   userId: string;
 
-  @Prop({ required: true, type: String })
-  name: string;
-
   @Prop({ required: true, type: Number, enum: AvatarPlayerType })
   type: AvatarPlayerType; // TODO: update type
 
   @Prop({ required: true, type: Number, default: 0 })
   exp: number;
-
-  @Prop({ required: true, type: Number, default: 0 })
-  speed: number;
-
-  @Prop({ required: true, type: Number, default: 0 })
-  damage: number;
-
-  @Prop({ required: true, type: Number, default: 0 })
-  defense: number;
 
   @Prop({ required: false, type: [String] })
   skillIds?: string[];

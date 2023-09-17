@@ -12,7 +12,7 @@ export class Skill {
   @Prop({ required: true, type: String })
   name: string;
 
-  @Prop({ required: true, type: String })
+  @Prop({ required: true, type: String, unique: true })
   code: string;
 
   @Prop({ required: false, type: String })
@@ -28,9 +28,6 @@ export class Skill {
   command: string;
 
   @Prop({ required: true, type: Number, default: 0 })
-  defense: number;
-
-  @Prop({ required: true, type: Number, default: 0 })
   damage: number;
 
   @Prop({ required: true, type: Number, default: 0 })
@@ -40,7 +37,10 @@ export class Skill {
   lostSpecialEnergy: number;
 
   @Prop({ required: true, type: Boolean, default: false })
-  isBlock: boolean; // can be blocked by opponents
+  blockByDefense: boolean; // can be blocked by opponents
+
+  @Prop({ required: true, type: Number, default: 0 })
+  percentDecreaseAttackDamage: number;
 
   @Prop({ required: true, type: Boolean, default: false })
   isDeleted: boolean;

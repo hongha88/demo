@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
-import { AvatarPlayer } from './avatarPlayer.schema';
+import { AvatarPlayer, AvatarPlayerDocument } from './avatarPlayer.schema';
 
 export type UserDocument = HydratedDocument<User>;
 
@@ -35,9 +35,10 @@ export class User {
 
   @Prop({
     required: false,
-    type: [{ type: Types.ObjectId, ref: AvatarPlayer.name }],
+    type: Types.ObjectId,
+    ref: AvatarPlayer.name,
   })
-  avatarPlayer?: AvatarPlayer; 
+  avatarPlayer?: Types.ObjectId | Partial<AvatarPlayerDocument>;
 
   @Prop({ required: false, type: Boolean })
   isDeleted?: boolean; // only delete in game

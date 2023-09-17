@@ -1,30 +1,30 @@
-import { MasterType, GenderType, State } from 'enums/master.enum';
-import { Types } from 'mongoose';
 import { Master, MasterDocument } from 'schemas/master.schema';
-import { Skill } from 'schemas/skill.schema';
 import { Exclude, Expose } from 'class-transformer';
+import { Status } from 'enums/common.enum';
+import { MasterCode, GenderType } from 'enums/master.enum';
+import { PlatformType } from 'enums/platform.enum';
+import { Skill } from 'schemas/skill.schema';
+import { Types } from 'mongoose';
 
 export class MasterDto implements Master {
   @Exclude()
   _id: Types.ObjectId;
   name: string;
-  type: MasterType;
+  code: MasterCode;
   slogan?: string;
   description?: string;
   age: number;
   gender: GenderType;
-  hates?: string[];
-  likes?: string[];
+  identity: string;
+  hates?: string;
+  likes?: string;
   weight: number;
   height: number;
-  hp: number;
-  mana: number;
-  recoverMana: number;
-  specialEnergy: number;
-  specialEnergyTakeDamage: number;
-  specialEnergyDealDamage: number;
-  state: State;
   skills?: Skill[];
+  @Exclude()
+  plaform?: PlatformType;
+  @Exclude()
+  status: Status;
   @Exclude()
   isDeleted: boolean;
   @Exclude()

@@ -1,5 +1,5 @@
 export enum EmoteType {
-  Master = 'Master',
-  AvatarPlayer = 'AvatarPlayer',
-  Common = 'Common',
+  Master = 1,
+  AvatarPlayer = 2,
+  Common = 3,
 }

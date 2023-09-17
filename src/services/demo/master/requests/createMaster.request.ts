@@ -1,28 +1,35 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  IsArray,
   IsEnum,
   IsNotEmpty,
   IsNumber,
   IsOptional,
   IsPositive,
-  IsString,
 } from 'class-validator';
-import { MasterType, GenderType } from 'enums/master.enum';
+import { GenderType, MasterCode, VoiceType } from 'enums/master.enum';
 import { Master } from 'schemas/master.schema';
-import { Skill } from 'schemas/skill.schema';
 
 export class CreateMasterRequest
   implements
-    Omit<Master, 'createdBy' | 'updatedBy' | 'isDeleted' | 'state' | 'skills'>
+    Omit<
+      Master,
+      | 'outfits'
+      | 'emotes'
+      | 'skills'
+      | 'platform'
+      | 'status'
+      | 'isDeleted'
+      | 'createdBy'
+      | 'updatedBy'
+    >
 {
   @ApiProperty({ required: true })
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty({ required: true, enum: MasterType })
-  @IsEnum(MasterType)
-  type: MasterType;
+  @ApiProperty({ required: true, enum: MasterCode })
+  @IsEnum(MasterCode)
+  code: MasterCode;
 
   @ApiProperty({ required: false })
   @IsOptional()
@@ -41,14 +48,16 @@ export class CreateMasterRequest
   gender: GenderType;
 
   @ApiProperty({ required: false })
-  @IsArray()
-  @IsOptional()
-  hates?: string[];
+  @IsNotEmpty()
+  identity: string;
 
   @ApiProperty({ required: false })
-  @IsArray()
   @IsOptional()
-  likes?: string[];
+  hates?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  likes?: string;
 
   @ApiProperty({ required: true })
   @IsPositive()
@@ -59,26 +68,6 @@ export class CreateMasterRequest
   height: number;
 
   @ApiProperty({ required: true })
-  @IsPositive()
-  hp: number;
-
-  @ApiProperty({ required: true })
-  @IsNumber()
-  mana: number;
-
-  @ApiProperty({ required: true })
-  @IsNumber()
-  recoverMana: number;
-
-  @ApiProperty({ required: true })
-  @IsNumber()
-  specialEnergy: number;
-
-  @ApiProperty({ required: true })
-  @IsNumber()
-  specialEnergyTakeDamage: number;
-
-  @ApiProperty({ required: true })
-  @IsNumber()
-  specialEnergyDealDamage: number;
+  @IsEnum(VoiceType)
+  voice: VoiceType;
 }

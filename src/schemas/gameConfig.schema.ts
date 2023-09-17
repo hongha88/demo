@@ -18,11 +18,25 @@ export type ProficientMilestone = {
 export type ProficientConfig = Record<ProficientType, ProficientMilestone>;
 
 export type GameConfigKey = {
-  damageDefault: number;
-  defenseDefault: number;
-  speedDefault: number;
-  level: LevelConfig;
-  proficient: ProficientConfig;
+  damage: number; // avtar player
+  defense: number; // avtar player
+  speed: number; // master
+  jogSpeed: number; // avtar player
+  sprintSpeed: number; // avtar player
+  level: LevelConfig; // avtar player
+  proficient: ProficientConfig; // master
+  staminaRecover: number; // avtar player
+  staminaCost: number; // avtar player
+  stamina: number; // avtar player
+  hp: number; // master
+  mana: number; // master
+  recoverMana: number; // master
+  specialEnergy: number; //master
+  specialEnergyTakeDamage: number; // master
+  specialEnergyDealDamage: number; // master
+  timeSelectMaster: number;
+  timeSelectOutfitAndEmote: number;
+  timePauseGame: number;
 };
 
 @Schema({

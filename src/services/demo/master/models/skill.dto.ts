@@ -10,14 +10,13 @@ export class SkillDto implements Skill {
   code: string;
   description?: string;
   type: SkillType;
-  @Exclude()
   masterId: Types.ObjectId;
   command: string;
-  defense: number;
   damage: number;
   lostMana: number;
   lostSpecialEnergy: number;
-  isBlock: boolean;
+  blockByDefense: boolean;
+  percentDecreaseAttackDamage: number;
   @Exclude()
   isDeleted: boolean;
   @Exclude()

@@ -3,6 +3,7 @@ import { AccessoryType } from 'enums/accessory.enum';
 import { Category } from 'enums/category.enum';
 import { EmoteType } from 'enums/emote.enum';
 import { HydratedDocument } from 'mongoose';
+import { Color } from './accessory.schema';
 
 export type AssetDocument = HydratedDocument<Asset>;
 
@@ -47,16 +48,16 @@ export class Asset {
   image: string;
 
   @Prop({ required: false, type: String })
-  color: string;
+  color: Color;
 
   @Prop({ required: false, type: Object })
   attributes: any;
 
-  @Prop({ required: true, type: String, enum: AccessoryType || EmoteType })
-  type: AccessoryType | EmoteType;
+  @Prop({ required: true, type: String, enum: AccessoryType })
+  type: AccessoryType;
 
   @Prop({ required: false, type: String })
-  code: string; 
+  code: string;
 
   @Prop({ required: false, type: Boolean })
   isEquipped: boolean;

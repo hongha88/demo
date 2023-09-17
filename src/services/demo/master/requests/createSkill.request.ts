@@ -10,7 +10,16 @@ import { SkillType } from 'enums/skill.enum';
 import { Skill } from 'schemas/skill.schema';
 
 export class CreateSkillRequest
-  implements Omit<Skill, 'masterId' | 'createdBy' | 'updatedBy' | 'isDeleted'>
+  implements
+    Omit<
+      Skill,
+      | 'masterId'
+      | 'createdBy'
+      | 'updatedBy'
+      | 'isDeleted'
+      | 'blockByDefense'
+      | 'percentDecreaseAttackDamage'
+    >
 {
   @ApiProperty({ required: true })
   @IsNotEmpty()
@@ -34,10 +43,6 @@ export class CreateSkillRequest
 
   @ApiProperty({ required: true })
   @IsNumber()
-  defense: number;
-
-  @ApiProperty({ required: true })
-  @IsNumber()
   damage: number;
 
   @ApiProperty({ required: true })
@@ -48,7 +53,4 @@ export class CreateSkillRequest
   @IsNumber()
   lostSpecialEnergy: number;
 
-  @ApiProperty({ required: true })
-  @IsBoolean()
-  isBlock: boolean;
 }
