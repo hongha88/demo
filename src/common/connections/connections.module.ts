@@ -6,23 +6,23 @@ import configs from '@configs';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: configs.ENV.MYSQL_DB_HOST,
-      port: configs.ENV.MYSQL_DB_PORT,
-      username: configs.ENV.MYSQL_DB_USER,
-      password: configs.ENV.MYSQL_DB_PASS,
-      database: configs.ENV.MYSQL_DB_NAME,
-      synchronize: false,
-      logging: configs.ENV.NODE_ENV == 'production' ? true : false,
-      timezone: 'Z',
-      charset: 'utf8mb4',
-      supportBigNumbers: true,
-    }),
+    // TypeOrmModule.forRoot({
+    //   type: 'mysql',
+    //   host: configs.ENV.MYSQL_DB_HOST,
+    //   port: configs.ENV.MYSQL_DB_PORT,
+    //   username: configs.ENV.MYSQL_DB_USER,
+    //   password: configs.ENV.MYSQL_DB_PASS,
+    //   database: configs.ENV.MYSQL_DB_NAME,
+    //   synchronize: false,
+    //   logging: configs.ENV.NODE_ENV == 'production' ? true : false,
+    //   timezone: 'Z',
+    //   charset: 'utf8mb4',
+    //   supportBigNumbers: true,
+    // }),
     MongooseModule.forRoot(configs.ENV.MONGO_URL),
     EventEmitterModule.forRoot(),
   ],
   providers: [],
-  exports: [TypeOrmModule, MongooseModule],
+  exports: [MongooseModule],
 })
 export class ConnectionModule {}

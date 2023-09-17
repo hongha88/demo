@@ -297,4 +297,24 @@ export const initMaster = async (
     createdBy: 'init',
     updatedBy: 'init',
   }).save();
+
+  MAG_001.skills.push(
+    MAG_001_Cmd_Nor_001.toObject(),
+    MAG_001_Cmd_Nor_002.toObject(),
+    MAG_001_Cmd_Combo_001.toObject(),
+    MAG_001_Cmd_Combo_002.toObject(),
+    MAG_001_Cmd_Mix_001.toObject(),
+    MAG_001_Cmd_Mix_002.toObject(),
+    MAG_001_Cmd_Skill_001.toObject(),
+    MAG_001_Cmd_Skill_002.toObject(),
+  );
+  MAG_001.emotes.push(
+    MAG_001_Emote_Ready_001.toObject(),
+    MAG_001_Emote_Win_001.toObject(),
+  );
+  MAG_001.outfits.push(
+    MAG_001_Outfit_1.toObject(),
+    MAG_001_Outfit_2.toObject(),
+  );
+  MAG_001.save();
 };

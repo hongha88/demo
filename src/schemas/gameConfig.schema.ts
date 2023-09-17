@@ -24,7 +24,6 @@ export type GameConfigKey = {
   jogSpeed: number; // avtar player
   sprintSpeed: number; // avtar player
   level: LevelConfig; // avtar player
-  proficient: ProficientConfig; // master
   staminaRecover: number; // avtar player
   staminaCost: number; // avtar player
   stamina: number; // avtar player

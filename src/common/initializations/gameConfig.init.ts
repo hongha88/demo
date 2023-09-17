@@ -1,5 +1,4 @@
 import { transformArrayObjectToMap } from '@helpers/utils.helper';
-import { ProficientType } from 'enums/master.enum';
 import { Model } from 'mongoose';
 import { GameConfigDocument, GameConfigKey } from 'schemas/gameConfig.schema';
 
@@ -19,33 +18,6 @@ export const initGameConfig = async (
       4: { exp: 3000, hpIncrease: 100 },
       5: { exp: 4000, hpIncrease: 100 },
       6: { exp: 10000, hpIncrease: 500 },
-    },
-    proficient: {
-      [ProficientType.S]: {
-        proficientScore: 2000,
-        proficientIncreaseWin: 20,
-        proficientIncreaseLose: 10,
-      },
-      [ProficientType.A]: {
-        proficientScore: 1500,
-        proficientIncreaseWin: 15,
-        proficientIncreaseLose: 10,
-      },
-      [ProficientType.B]: {
-        proficientScore: 1000,
-        proficientIncreaseWin: 10,
-        proficientIncreaseLose: 5,
-      },
-      [ProficientType.C]: {
-        proficientScore: 500,
-        proficientIncreaseWin: 10,
-        proficientIncreaseLose: 5,
-      },
-      [ProficientType.D]: {
-        proficientScore: 0,
-        proficientIncreaseWin: 10,
-        proficientIncreaseLose: 1,
-      },
     },
     staminaRecover: 2, // ...dv/sec
     staminaCost: 5, // ...dv/sec
